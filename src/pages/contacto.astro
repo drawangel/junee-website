@@ -141,7 +141,7 @@ import Layout from '../layouts/Layout.astro';
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const formData = new FormData(form);
-      const button = form.querySelector('button[type="submit"]');
+      const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
       const originalText = button?.querySelector('span')?.textContent;
 
       if (button) {
