@@ -27,6 +27,9 @@ import Layout from '../layouts/Layout.astro';
               <input type="hidden" name="subject" value="Nuevo contacto desde Junee AI" />
               <input type="hidden" name="from_name" value="Junee AI Website" />
 
+              <!-- Honeypot spam protection - bots will fill this, humans won't see it -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+
               <!-- Nombre -->
               <div>
                 <label class="flex flex-col">
