@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Productos - Junee AI" description="Descubre nuestros productos de IA para la gestión de catálogos de e-commerce.">
+  <!-- HeroSection -->
+  <div class="text-center py-20 sm:py-24 md:py-32">
+    <div class="flex flex-col items-center gap-6">
+      <div class="flex flex-col gap-4 text-center max-w-3xl px-4">
+        <h1 class="text-4xl font-black leading-tight tracking-tighter text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
+          Más que IA. Entendimiento del producto.
+        </h1>
+        <h2 class="text-lg font-normal text-gray-600 dark:text-gray-300">
+          Junee AI no solo analiza texto; comprende el significado, la intención y el contexto de cada producto.
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="container mx-auto max-w-5xl px-4 pb-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="flex flex-1 flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 transition-transform hover:-translate-y-1">
+        <div class="text-primary">
+          <span class="material-symbols-outlined" style="font-size: 32px;">account_tree</span>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Junee Taxo</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Un motor de categorización de productos impulsado por IA que crea taxonomías inteligentes e intuitivas de forma automática.
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-1 flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 transition-transform hover:-translate-y-1">
+        <div class="text-primary">
+          <span class="material-symbols-outlined" style="font-size: 32px;">translate</span>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Junee Meta</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Enriquece los atributos del producto y genera descripciones multilingües para mejorar el descubrimiento de productos y el SEO.
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-1 flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 transition-transform hover:-translate-y-1">
+        <div class="text-primary">
+          <span class="material-symbols-outlined" style="font-size: 32px;">sync_alt</span>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Junee Flow</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Automatiza los procesos de gestión de tu catálogo para aumentar la eficiencia, reducir errores y escalar tus operaciones.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout title="Junee - Transforma tu catálogo. Potencia tu e-commerce.">
+  <!-- HeroSection -->
+  <section class="py-20 sm:py-28">
+    <div class="container mx-auto max-w-5xl px-4">
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div class="flex flex-col gap-8 text-center lg:text-left">
+          <div class="flex flex-col gap-4">
+            <h1 class="text-4xl font-black leading-tight tracking-tighter text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+              Transforma tu catálogo. Potencia tu e-commerce.
+            </h1>
+            <h2 class="text-lg font-normal text-gray-600 dark:text-gray-300">
+              Junee AI entiende, organiza y enriquece tus productos como lo haría un experto humano, a escala y en segundos.
+            </h2>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4 lg:justify-start">
+            <Button href="/contacto">Solicitar DEMO</Button>
+            <Button variant="secondary" href="/contacto">Diagnóstico gratuito</Button>
+          </div>
+        </div>
+        <div class="w-full aspect-video rounded-xl bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBiwkHWJnI5SyHululDH11Vs9DflrHn1foFquWw57sDL_gxCTNRyj5s1khNATdBUZqwS-XepO-SR1qEhn9q3fQ3b0PBF-XvGgbzAO3aE1-zOvqS-MrWAI6dN5ix3v845gjasPAdXhYDS_aETiwkPzHxD1vAJoJH91aSLORWRmf1LV4xV1yQDwfUM2Uuk1LNsgpLXeC3bf8vK-sLX8tLb2Bd1wWV7NM_0iskPWmsrplHa8mtjYlHIAB_yTaqhDBNXeSUCiUQqy8VT0Cb");'></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SectionHeader -->
+  <section class="py-12">
+    <div class="container mx-auto max-w-5xl px-4">
+      <h4 class="text-center text-sm font-bold uppercase tracking-widest text-primary dark:text-primary/90">
+        Un catálogo ordenado vende más.
+      </h4>
+    </div>
+  </section>
+
+  <!-- FeatureSection -->
+  <section class="py-16 sm:py-20">
+    <div class="container mx-auto max-w-5xl px-4">
+      <div class="flex flex-col items-center gap-12">
+        <div class="flex max-w-3xl flex-col gap-4 text-center">
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            Descubre el poder de un catálogo inteligente
+          </h1>
+          <p class="text-lg text-gray-600 dark:text-gray-300">
+            Nuestra plataforma se encarga del trabajo pesado para que puedas centrarte en crecer.
+          </p>
+        </div>
+        <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
+          <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 text-center">
+            <div class="mx-auto flex size-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
+              <span class="material-symbols-outlined text-3xl">sell</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h2 class="text-lg font-bold text-gray-900 dark:text-white">Taxonomía inteligente</h2>
+              <p class="text-sm text-gray-600 dark:text-gray-300">
+                Clasificamos y estructuramos tus productos automáticamente, mejorando la navegación y el descubrimiento.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 text-center">
+            <div class="mx-auto flex size-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
+              <span class="material-symbols-outlined text-3xl">auto_awesome</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h2 class="text-lg font-bold text-gray-900 dark:text-white">Contenido enriquecido</h2>
+              <p class="text-sm text-gray-600 dark:text-gray-300">
+                Generamos descripciones, atributos y etiquetas que convierten visitantes en compradores.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 text-center">
+            <div class="mx-auto flex size-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
+              <span class="material-symbols-outlined text-3xl">integration_instructions</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h2 class="text-lg font-bold text-gray-900 dark:text-white">Integración sin fricciones</h2>
+              <p class="text-sm text-gray-600 dark:text-gray-300">
+                Conéctate fácilmente con tus plataformas de e-commerce y PIM existentes sin complicaciones.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 sm:py-20">
+    <div class="container mx-auto max-w-5xl px-4">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div class="flex flex-col items-center gap-2 rounded-xl bg-gray-100 dark:bg-gray-900 p-8 text-center">
+          <p class="text-5xl font-black text-primary">+40%</p>
+          <p class="text-base font-medium text-gray-600 dark:text-gray-300">Aumento en conversión</p>
+        </div>
+        <div class="flex flex-col items-center gap-2 rounded-xl bg-gray-100 dark:bg-gray-900 p-8 text-center">
+          <p class="text-5xl font-black text-primary">−60%</p>
+          <p class="text-base font-medium text-gray-600 dark:text-gray-300">Reducción de tiempo manual</p>
+        </div>
+        <div class="flex flex-col items-center gap-2 rounded-xl bg-gray-100 dark:bg-gray-900 p-8 text-center">
+          <p class="text-5xl font-black text-primary">+25%</p>
+          <p class="text-base font-medium text-gray-600 dark:text-gray-300">Conversión en ficha de producto</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-20 sm:py-28">
+    <div class="container mx-auto max-w-3xl px-4">
+      <div class="flex flex-col items-center gap-8 rounded-xl bg-primary/10 dark:bg-primary/20 p-10 text-center sm:p-16">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          El futuro del e-commerce empieza por un catálogo que se entiende a sí mismo.
+        </h2>
+        <Button href="/contacto">Solicitar una demo</Button>
+      </div>
+    </div>
+  </section>
+</Layout>
