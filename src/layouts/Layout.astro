@@ -13,12 +13,13 @@ const { title, description = "Junee AI - Transforma tu catálogo. Potencia tu e-
 ---
 
 <!doctype html>
-<html lang="es" class="light">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" type="image/png" href="/favicon.png" />
 
     <!-- Google Fonts -->
@@ -36,6 +37,33 @@ const { title, description = "Junee AI - Transforma tu catálogo. Potencia tu e-
     />
 
     <title>{title}</title>
+
+    <!-- Theme initialization script (runs before body to prevent flash) -->
+    <script is:inline>
+      (function() {
+        const THEME_KEY = 'junee-theme';
+
+        function getThemePreference() {
+          const stored = localStorage.getItem(THEME_KEY);
+          return stored || 'system';
+        }
+
+        function getSystemTheme() {
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function getEffectiveTheme(theme) {
+          return theme === 'system' ? getSystemTheme() : theme;
+        }
+
+        const theme = getThemePreference();
+        const effectiveTheme = getEffectiveTheme(theme);
+
+        // Remove both classes first, then add the correct one
+        document.documentElement.classList.remove('light', 'dark');
+        document.documentElement.classList.add(effectiveTheme);
+      })();
+    </script>
 
     <!-- Google Analytics -->
     <GoogleAnalytics />

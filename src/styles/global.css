@@ -2,7 +2,7 @@
 
 @theme {
   /* Colors */
-  --color-primary: #9790e1;
+  --color-primary: #c0b3fe;
   --color-background-light: #f9fafb;
   --color-background-dark: #111827;
 
@@ -16,6 +16,9 @@
   --radius-full: 9999px;
 }
 
+/* Configure dark mode to use class strategy */
+@variant dark (&:is(.dark *));
+
 /* Material Symbols Icons */
 .material-symbols-outlined {
   font-variation-settings:
@@ -23,4 +26,34 @@
   'wght' 400,
   'GRAD' 0,
   'opsz' 24
+}
+
+/* Custom Animations */
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delay utilities for animations */
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
 }
