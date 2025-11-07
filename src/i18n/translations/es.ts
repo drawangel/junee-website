@@ -26,7 +26,8 @@ export const es = {
   home: {
     title: 'Junee - Transforma tu catálogo. Potencia tu e-commerce.',
     hero: {
-      title: 'Transforma tu catálogo. Potencia tu',
+      title: 'Transforma tu catálogo.',
+      titleLine2: 'Potencia tu',
       titleHighlight: 'e-commerce.',
       subtitle: 'Junee AI entiende, organiza y enriquece tus productos como lo haría un experto humano, a escala y en segundos.',
       ctaPrimary: 'Solicitar DEMO',
