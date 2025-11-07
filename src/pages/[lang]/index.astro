@@ -1,11 +1,47 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/Button.astro';
-import { useTranslations } from '../../i18n';
+import { useTranslations, getLangFromUrl } from '../../i18n';
 
-const { lang } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
+
+<style>
+/* VARIANTE 1: Gradiente Animado Mesh (estilo moderno) */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .gradient-mesh {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg,
+      rgba(139, 92, 246, 0.1) 0%,
+      rgba(168, 85, 247, 0.15) 25%,
+      rgba(59, 130, 246, 0.12) 50%,
+      rgba(168, 85, 247, 0.15) 75%,
+      rgba(139, 92, 246, 0.1) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  /* Mayor visibilidad en modo oscuro */
+  :global(.dark) .gradient-mesh {
+    background: linear-gradient(45deg,
+      rgba(139, 92, 246, 0.25) 0%,
+      rgba(168, 85, 247, 0.35) 25%,
+      rgba(59, 130, 246, 0.3) 50%,
+      rgba(168, 85, 247, 0.35) 75%,
+      rgba(139, 92, 246, 0.25) 100%);
+  }
+
+</style>
 
 <Layout title={t('home.title')}>
   <!-- HeroSection -->
@@ -37,10 +73,7 @@ const t = useTranslations(lang);
   <section class="py-12">
     <div class="container mx-auto max-w-5xl px-4">
       <div class="relative overflow-hidden rounded-2xl backdrop-blur-xl bg-primary/20 dark:bg-primary/30 border border-primary/30 p-12 shadow-2xl">
-        <div class="absolute inset-0 opacity-30">
-          <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-primary rounded-full blur-3xl animate-pulse"></div>
-          <div class="absolute bottom-1/4 right-1/4 w-40 h-40 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+        <div class="gradient-mesh"></div>
         <h2 class="relative text-center text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white animate-[fadeInUp_0.8s_ease-out]">
           {t('home.sectionHeader.title')}
         </h2>
@@ -123,10 +156,7 @@ const t = useTranslations(lang);
   <section class="py-20 sm:py-28">
     <div class="container mx-auto max-w-5xl px-4">
       <div class="relative overflow-hidden flex flex-col items-center gap-8 rounded-2xl backdrop-blur-xl bg-primary/20 dark:bg-primary/30 border border-primary/30 p-10 text-center sm:p-16 shadow-2xl">
-        <div class="absolute inset-0 opacity-30">
-          <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-primary rounded-full blur-3xl animate-pulse"></div>
-          <div class="absolute bottom-1/4 right-1/4 w-40 h-40 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+        <div class="gradient-mesh"></div>
         <h2 class="relative text-3xl font-black tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl animate-[fadeInUp_0.8s_ease-out]">
           {t('home.cta.title')}
         </h2>
