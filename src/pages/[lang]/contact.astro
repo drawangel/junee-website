@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { useTranslations } from '../../i18n';
 
-const lang = 'es';
+const { lang } = Astro.params;
 const t = useTranslations(lang);
 ---
 
@@ -135,19 +135,19 @@ const t = useTranslations(lang);
   </main>
 </Layout>
 
-<script>
+<script define:vars={{ sending: t('contact.form.sending'), success: t('contact.form.success'), error: t('contact.form.error') }}>
   const form = document.querySelector('form');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const formData = new FormData(form);
-      const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+      const button = form.querySelector('button[type="submit"]');
       const originalText = button?.querySelector('span')?.textContent;
 
       if (button) {
         button.disabled = true;
         const span = button.querySelector('span');
-        if (span) span.textContent = 'Enviando...';
+        if (span) span.textContent = sending;
       }
 
       try {
@@ -159,7 +159,7 @@ const t = useTranslations(lang);
         if (response.ok) {
           if (button) {
             const span = button.querySelector('span');
-            if (span) span.textContent = '¡Enviado! Te contactaremos pronto.';
+            if (span) span.textContent = success;
           }
           form.reset();
           setTimeout(() => {
@@ -172,13 +172,13 @@ const t = useTranslations(lang);
         } else {
           throw new Error('Error en el envío');
         }
-      } catch (error) {
+      } catch (err) {
         if (button) {
           button.disabled = false;
           const span = button.querySelector('span');
           if (span && originalText) span.textContent = originalText;
         }
-        alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+        alert(error);
       }
     });
   }
