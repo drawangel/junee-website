@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+import { useTranslations } from '../../i18n';
+
+const lang = 'es';
+const t = useTranslations(lang);
+---
+
+<Layout title={t('howWeHelp.title')} description={t('howWeHelp.description')}>
+  <main class="flex-1 py-12 md:py-20">
+    <!-- Header Section -->
+    <div class="flex flex-wrap justify-between gap-6 px-4">
+      <div class="flex w-full flex-col gap-3 text-center items-center">
+        <p class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-tighter max-w-2xl">
+          {t('howWeHelp.hero.title')}
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal max-w-xl">
+          {t('howWeHelp.hero.subtitle')}
+        </p>
+      </div>
+    </div>
+
+    <!-- Solutions Grid -->
+    <div class="container mx-auto max-w-5xl px-4 mt-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+        <div class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 flex-col hover:shadow-lg hover:border-primary/50 transition-all">
+          <div class="text-primary">
+            <span class="material-symbols-outlined" style="font-size: 32px;">shopping_cart</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight">{t('howWeHelp.retailers.title')}</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
+              {t('howWeHelp.retailers.description')}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 flex-col hover:shadow-lg hover:border-primary/50 transition-all">
+          <div class="text-primary">
+            <span class="material-symbols-outlined" style="font-size: 32px;">hub</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight">{t('howWeHelp.marketplaces.title')}</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
+              {t('howWeHelp.marketplaces.description')}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 flex-col hover:shadow-lg hover:border-primary/50 transition-all">
+          <div class="text-primary">
+            <span class="material-symbols-outlined" style="font-size: 32px;">sell</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight">{t('howWeHelp.brands.title')}</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
+              {t('howWeHelp.brands.description')}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 flex-col hover:shadow-lg hover:border-primary/50 transition-all">
+          <div class="text-primary">
+            <span class="material-symbols-outlined" style="font-size: 32px;">manage_search</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight">{t('howWeHelp.aggregators.title')}</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
+              {t('howWeHelp.aggregators.description')}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="container mx-auto max-w-5xl mt-12 md:mt-20">
+      <div class="flex flex-col justify-end gap-6 px-4 py-10 sm:px-10 sm:py-20">
+        <div class="flex flex-col gap-2 text-center items-center">
+          <h1 class="text-gray-900 dark:text-white tracking-tight text-3xl font-bold leading-tight sm:text-4xl max-w-[720px]">
+            {t('howWeHelp.cta.title')}
+          </h1>
+          <p class="text-gray-900 dark:text-gray-300 text-base font-normal leading-normal max-w-[720px]">
+            {t('howWeHelp.cta.subtitle')}
+          </p>
+        </div>
+        <div class="flex flex-1 justify-center mt-4">
+          <Button href={`/${lang}/contact`}>{t('howWeHelp.cta.button')}</Button>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,17 +1,21 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n';
+
+const lang = 'pt';
+const t = useTranslations(lang);
 ---
 
-<Layout title="Productos - Junee AI" description="Descubre nuestros productos de IA para la gestión de catálogos de e-commerce.">
+<Layout title={t('products.title')} description={t('products.description')}>
   <!-- HeroSection -->
   <div class="text-center py-20 sm:py-24 md:py-32">
     <div class="flex flex-col items-center gap-6">
       <div class="flex flex-col gap-4 text-center max-w-3xl px-4">
         <h1 class="text-4xl font-black leading-tight tracking-tighter text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
-          Más que IA. Entendimiento del producto.
+          {t('products.hero.title')}
         </h1>
         <h2 class="text-lg font-normal text-gray-600 dark:text-gray-300">
-          Junee AI no solo analiza texto; comprende el significado, la intención y el contexto de cada producto.
+          {t('products.hero.subtitle')}
         </h2>
       </div>
     </div>
@@ -25,9 +29,9 @@ import Layout from '../layouts/Layout.astro';
           <span class="material-symbols-outlined" style="font-size: 32px;">account_tree</span>
         </div>
         <div class="flex flex-col gap-2">
-          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Junee Taxo</h2>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">{t('products.taxo.title')}</h2>
           <p class="text-sm text-gray-600 dark:text-gray-300">
-            Un motor de categorización de productos impulsado por IA que crea taxonomías inteligentes e intuitivas de forma automática.
+            {t('products.taxo.description')}
           </p>
         </div>
       </div>
@@ -36,9 +40,9 @@ import Layout from '../layouts/Layout.astro';
           <span class="material-symbols-outlined" style="font-size: 32px;">translate</span>
         </div>
         <div class="flex flex-col gap-2">
-          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Junee Meta</h2>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">{t('products.meta.title')}</h2>
           <p class="text-sm text-gray-600 dark:text-gray-300">
-            Enriquece los atributos del producto y genera descripciones multilingües para mejorar el descubrimiento de productos y el SEO.
+            {t('products.meta.description')}
           </p>
         </div>
       </div>
@@ -47,9 +51,9 @@ import Layout from '../layouts/Layout.astro';
           <span class="material-symbols-outlined" style="font-size: 32px;">sync_alt</span>
         </div>
         <div class="flex flex-col gap-2">
-          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Junee Flow</h2>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">{t('products.flow.title')}</h2>
           <p class="text-sm text-gray-600 dark:text-gray-300">
-            Automatiza los procesos de gestión de tu catálogo para aumentar la eficiencia, reducir errores y escalar tus operaciones.
+            {t('products.flow.description')}
           </p>
         </div>
       </div>

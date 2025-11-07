@@ -1,8 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n';
+
+const lang = 'es';
+const t = useTranslations(lang);
 ---
 
-<Layout title="Contacto - Junee AI" description="Contacta con Junee AI para transformar tu catálogo de e-commerce">
+<Layout title={t('contact.title')} description={t('contact.description')}>
   <main class="flex-grow">
     <div class="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
       <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
@@ -10,10 +14,10 @@ import Layout from '../layouts/Layout.astro';
         <div class="flex flex-col justify-center">
           <div class="flex flex-col gap-4">
             <h1 class="text-4xl font-black leading-tight tracking-tighter text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
-              Empecemos por tu catálogo
+              {t('contact.hero.title')}
             </h1>
             <p class="text-gray-600 dark:text-gray-400 text-lg font-normal leading-normal">
-              Déjanos conocer tus retos. Te mostraremos cómo Junee puede ayudarte.
+              {t('contact.hero.subtitle')}
             </p>
           </div>
         </div>
@@ -22,22 +26,19 @@ import Layout from '../layouts/Layout.astro';
         <div class="w-full">
           <div class="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 sm:p-8 shadow-sm">
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-              <!-- Web3Forms Access Key - Replace with your own from https://web3forms.com -->
               <input type="hidden" name="access_key" value="2d84aac6-5a5d-4582-9a4f-22aadfb6beb1" />
-              <input type="hidden" name="subject" value="Nuevo contacto desde Junee AI" />
-              <input type="hidden" name="from_name" value="Junee AI Website" />
-
-              <!-- Honeypot spam protection - bots will fill this, humans won't see it -->
+              <input type="hidden" name="subject" value={t('contact.form.subject')} />
+              <input type="hidden" name="from_name" value={t('contact.form.fromName')} />
               <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
 
               <!-- Nombre -->
               <div>
                 <label class="flex flex-col">
-                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">Nombre</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">{t('contact.form.name')}</p>
                   <input
                     class="w-full rounded-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary border-2 border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-900 focus:border-primary h-16 placeholder:text-gray-400 px-4 text-base font-normal leading-normal transition-all"
                     name="name"
-                    placeholder="Tu nombre completo"
+                    placeholder={t('contact.form.namePlaceholder')}
                     required
                     type="text"
                   />
@@ -47,11 +48,11 @@ import Layout from '../layouts/Layout.astro';
               <!-- Empresa -->
               <div>
                 <label class="flex flex-col">
-                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">Empresa</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">{t('contact.form.company')}</p>
                   <input
                     class="w-full rounded-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary border-2 border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-900 focus:border-primary h-16 placeholder:text-gray-400 px-4 text-base font-normal leading-normal transition-all"
                     name="company"
-                    placeholder="Nombre de tu empresa"
+                    placeholder={t('contact.form.companyPlaceholder')}
                     required
                     type="text"
                   />
@@ -61,11 +62,11 @@ import Layout from '../layouts/Layout.astro';
               <!-- Email -->
               <div>
                 <label class="flex flex-col">
-                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">Email corporativo</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">{t('contact.form.email')}</p>
                   <input
                     class="w-full rounded-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary border-2 border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-900 focus:border-primary h-16 placeholder:text-gray-400 px-4 text-base font-normal leading-normal transition-all"
                     name="email"
-                    placeholder="nombre@empresa.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                     required
                     type="email"
                   />
@@ -75,20 +76,20 @@ import Layout from '../layouts/Layout.astro';
               <!-- Sector -->
               <div>
                 <label class="flex flex-col">
-                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">Sector</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">{t('contact.form.sector')}</p>
                   <div class="relative">
                     <select
                       class="w-full appearance-none rounded-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary border-2 border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-900 focus:border-primary h-16 px-4 pr-12 text-base font-normal leading-normal transition-all cursor-pointer"
                       name="sector"
                       required
                     >
-                      <option disabled selected value="">Selecciona tu sector</option>
-                      <option value="moda">Moda</option>
-                      <option value="electronica">Electrónica</option>
-                      <option value="hogar">Hogar y Jardín</option>
-                      <option value="belleza">Belleza y Cuidado Personal</option>
-                      <option value="alimentacion">Alimentación y Bebidas</option>
-                      <option value="otros">Otros</option>
+                      <option disabled selected value="">{t('contact.form.sectorPlaceholder')}</option>
+                      <option value="fashion">{t('contact.form.sectorOptions.fashion')}</option>
+                      <option value="electronics">{t('contact.form.sectorOptions.electronics')}</option>
+                      <option value="home">{t('contact.form.sectorOptions.home')}</option>
+                      <option value="beauty">{t('contact.form.sectorOptions.beauty')}</option>
+                      <option value="food">{t('contact.form.sectorOptions.food')}</option>
+                      <option value="other">{t('contact.form.sectorOptions.other')}</option>
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-gray-600 dark:text-gray-400">
                       <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -102,12 +103,12 @@ import Layout from '../layouts/Layout.astro';
               <!-- SKUs -->
               <div>
                 <label class="flex flex-col">
-                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">Número de SKUs que gestionas al mes</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white leading-normal pb-2">{t('contact.form.skus')}</p>
                   <input
                     class="w-full rounded-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary border-2 border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-900 focus:border-primary h-16 placeholder:text-gray-400 px-4 text-base font-normal leading-normal transition-all"
                     min="0"
                     name="skus"
-                    placeholder="Ej: 5000"
+                    placeholder={t('contact.form.skusPlaceholder')}
                     required
                     type="number"
                   />
@@ -120,12 +121,12 @@ import Layout from '../layouts/Layout.astro';
                   class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity mt-2"
                   type="submit"
                 >
-                  <span class="truncate">Solicitar diagnóstico gratuito</span>
+                  <span class="truncate">{t('contact.form.submit')}</span>
                 </button>
               </div>
 
               <!-- Subtext -->
-              <p class="text-center text-sm text-gray-500 dark:text-gray-400">Junee analiza. Tú decides.</p>
+              <p class="text-center text-sm text-gray-500 dark:text-gray-400">{t('contact.form.tagline')}</p>
             </form>
           </div>
         </div>
@@ -135,7 +136,6 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
-  // Form submission handler
   const form = document.querySelector('form');
   if (form) {
     form.addEventListener('submit', async (e) => {

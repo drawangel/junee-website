@@ -1,26 +1,32 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageSelector from './LanguageSelector.astro';
+import { getLangFromUrl, useTranslations } from '../i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
   <div class="container mx-auto max-w-5xl px-4">
     <div class="flex h-20 items-center justify-between border-b border-gray-200 dark:border-gray-800">
       <div class="flex items-center gap-4">
-        <a href="/" class="flex items-center hover:opacity-80 transition-opacity">
+        <a href={`/${lang}`} class="flex items-center hover:opacity-80 transition-opacity">
           <img src="/junee_logo_header_light.png" alt="Junee AI" class="h-10 w-auto dark:hidden" />
           <img src="/junee_logo_header_dark.png" alt="Junee AI" class="h-10 w-auto hidden dark:block" />
         </a>
       </div>
       <div class="flex items-center gap-2 md:gap-4">
         <nav class="hidden items-center gap-8 md:flex">
-          <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="/">Home</a>
-          <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="/como-te-ayudamos">Solución</a>
-          <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="/productos">Productos</a>
-          <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="/sobre-nosotros">Nosotros</a>
+          <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href={`/${lang}`}>{t('nav.home')}</a>
+          <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href={`/${lang}/how-we-help`}>{t('nav.solution')}</a>
+          <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href={`/${lang}/products`}>{t('nav.products')}</a>
+          <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href={`/${lang}/about-us`}>{t('nav.about')}</a>
         </nav>
+        <LanguageSelector />
         <ThemeToggle />
-        <a href="/contacto" class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide shadow-sm transition-transform hover:scale-105">
-          <span class="truncate">Solicitar DEMO</span>
+        <a href={`/${lang}/contact`} class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide shadow-sm transition-transform hover:scale-105">
+          <span class="truncate">{t('nav.requestDemo')}</span>
         </a>
         <!-- Mobile menu button -->
         <button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-10 h-10 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" aria-label="Toggle menu">
@@ -39,12 +45,12 @@ import ThemeToggle from './ThemeToggle.astro';
   <div id="mobile-menu" class="hidden md:hidden border-b border-gray-200 dark:border-gray-800">
     <div class="container mx-auto max-w-5xl px-4 py-4">
       <nav class="flex flex-col gap-4">
-        <a class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2" href="/">Home</a>
-        <a class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2" href="/como-te-ayudamos">Solución</a>
-        <a class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2" href="/productos">Productos</a>
-        <a class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2" href="/sobre-nosotros">Nosotros</a>
-        <a href="/contacto" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary text-white text-base font-bold leading-normal tracking-wide shadow-sm transition-transform hover:scale-105 mt-2">
-          <span class="truncate">Solicitar DEMO</span>
+        <a class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2" href={`/${lang}`}>{t('nav.home')}</a>
+        <a class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2" href={`/${lang}/how-we-help`}>{t('nav.solution')}</a>
+        <a class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2" href={`/${lang}/products`}>{t('nav.products')}</a>
+        <a class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2" href={`/${lang}/about-us`}>{t('nav.about')}</a>
+        <a href={`/${lang}/contact`} class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary text-white text-base font-bold leading-normal tracking-wide shadow-sm transition-transform hover:scale-105 mt-2">
+          <span class="truncate">{t('nav.requestDemo')}</span>
         </a>
       </nav>
     </div>

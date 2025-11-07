@@ -1,0 +1,82 @@
+---
+import { getLangFromUrl } from '../i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname.replace(/^\/(es|en|pt)/, '');
+
+const languages = [
+  { code: 'es', flag: '🇪🇸', name: 'Español' },
+  { code: 'en', flag: '🇬🇧', name: 'English' },
+  { code: 'pt', flag: '🇧🇷', name: 'Português' },
+] as const;
+
+const currentLanguage = languages.find(l => l.code === lang);
+---
+
+<div class="relative inline-block text-left">
+  <button
+    id="language-button"
+    type="button"
+    class="inline-flex items-center justify-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+    aria-expanded="false"
+    aria-haspopup="true"
+  >
+    <span class="text-xl leading-none">{currentLanguage?.flag}</span>
+    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <div
+    id="language-menu"
+    class="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black ring-opacity-5 hidden"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="language-button"
+  >
+    <div class="py-1" role="none">
+      {languages.map((language) => (
+        <a
+          href={`/${language.code}${currentPath}`}
+          class={`flex items-center gap-2 px-4 py-2 text-sm transition-colors ${
+            lang === language.code
+              ? 'bg-primary/10 text-primary font-medium'
+              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+          }`}
+          role="menuitem"
+        >
+          <span class="text-xl">{language.flag}</span>
+          <span>{language.name}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  // Language selector dropdown functionality
+  const languageButton = document.getElementById('language-button');
+  const languageMenu = document.getElementById('language-menu');
+
+  if (languageButton && languageMenu) {
+    languageButton.addEventListener('click', () => {
+      const isHidden = languageMenu.classList.contains('hidden');
+      if (isHidden) {
+        languageMenu.classList.remove('hidden');
+        languageButton.setAttribute('aria-expanded', 'true');
+      } else {
+        languageMenu.classList.add('hidden');
+        languageButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const target = event.target as Node;
+      if (!languageButton.contains(target) && !languageMenu.contains(target)) {
+        languageMenu.classList.add('hidden');
+        languageButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>
