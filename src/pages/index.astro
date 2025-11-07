@@ -1,4 +1,34 @@
 ---
 // This page will be redirected by middleware to the appropriate language
 // The middleware will detect the browser language and redirect to /es, /en, or /pt
+import { defaultLang } from '../i18n';
 ---
+
+<!DOCTYPE html>
+<html lang={defaultLang}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junee</title>
+  <script>
+    // Immediate redirect based on browser language
+    const getBrowserLang = () => {
+      const langs = navigator.languages || [navigator.language];
+      const supported = ['es', 'en', 'pt'];
+
+      for (const lang of langs) {
+        const code = lang.split('-')[0].toLowerCase();
+        if (supported.includes(code)) {
+          return code;
+        }
+      }
+      return 'es';
+    };
+
+    window.location.href = `/${getBrowserLang()}`;
+  </script>
+</head>
+<body style="margin: 0; padding: 0; background: white;">
+  <!-- Empty body - instant redirect via script -->
+</body>
+</html>

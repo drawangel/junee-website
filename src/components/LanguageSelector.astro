@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|pt)/, '');
 const languages = [
   { code: 'es', flag: '🇪🇸', name: 'Español' },
   { code: 'en', flag: '🇬🇧', name: 'English' },
-  { code: 'pt', flag: '🇧🇷', name: 'Português' },
+  { code: 'pt', flag: '🇵🇹', name: 'Português' },
 ] as const;
 
 const currentLanguage = languages.find(l => l.code === lang);
