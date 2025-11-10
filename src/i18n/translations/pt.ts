@@ -34,7 +34,8 @@ export const pt = {
       ctaSecondary: 'Diagnóstico gratuito',
     },
     sectionHeader: {
-      title: 'Um catálogo que vende mais',
+      title: 'Enriqueça seu catálogo em horas,',
+      titleLine2: 'não em semanas.',
     },
     features: {
       title: 'Descubra o poder de um catálogo inteligente',

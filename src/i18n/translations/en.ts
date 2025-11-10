@@ -34,7 +34,8 @@ export const en = {
       ctaSecondary: 'Free diagnosis',
     },
     sectionHeader: {
-      title: 'A catalog that sells more',
+      title: 'Enrich your catalog in hours,',
+      titleLine2: 'not weeks.',
     },
     features: {
       title: 'Discover the power of an intelligent catalog',
