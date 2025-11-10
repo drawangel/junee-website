@@ -1,9 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { useTranslations } from '../../i18n';
+import { useTranslations, getValidLang } from '../../i18n';
 
 const { lang } = Astro.params;
-const t = useTranslations(lang);
+const t = useTranslations(getValidLang(lang));
 ---
 
 <Layout title={t('about.title')} description={t('about.description')}>
@@ -26,13 +26,13 @@ const t = useTranslations(lang);
         <div class="flex flex-col gap-4 text-center items-center">
           <div class="px-4 w-full max-w-[200px]">
             <div class="w-full aspect-square rounded-full overflow-hidden bg-gray-200 dark:bg-gray-800">
-              <img src="/Adam_photo.jpeg" alt={t('about.team.adam.name')} class="w-full h-full object-cover scale-150" style="object-position: center 10%;" />
+              <img src="/Adam_junee.jpeg" alt={t('about.team.adam.name')} class="w-full h-full object-cover scale-150" style="object-position: center 10%;" />
             </div>
           </div>
           <div>
             <p class="text-gray-900 dark:text-white text-lg font-medium leading-normal">{t('about.team.adam.name')}</p>
             <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">{t('about.team.adam.role')}</p>
-            <a class="text-primary hover:underline text-sm font-normal leading-normal inline-flex items-center gap-1 mt-1 group" href="#">
+            <a class="text-primary hover:underline text-sm font-normal leading-normal inline-flex items-center gap-1 mt-1 group" href="https://www.linkedin.com/in/adam-benaim-22a43121/" target="_blank">
               <span>{t('about.team.linkedin')}</span>
               <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-0.5">arrow_forward</span>
             </a>
@@ -40,12 +40,14 @@ const t = useTranslations(lang);
         </div>
         <div class="flex flex-col gap-4 text-center items-center">
           <div class="px-4 w-full max-w-[200px]">
-            <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-full bg-gray-200 dark:bg-gray-800" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6SMPMKE1pJiW7UgOapFsywOQgQqmUkONndGYEtqUgdmMK2rYL_gsdonkUBUEKf4OsSHIhIxN1xLiWKT9eiXB84STPD36YTImllNjhhwD_mqCxaVTdMTc1iSCWyNsiWrYMJTwCj_vlXFhYgsYi9IYp1BfkAJ4WUd9exVxUC-uNejc6iFHJI1pcsbk0L8bR_Ai9BJkloF6HVV1TNF_gvpkDr1d5wsopp9wJwg2wEPvq7sIcoOKBt3_4EGbWq03gDjvjPCChia_GHRjN");'></div>
+            <div class="w-full aspect-square rounded-full overflow-hidden bg-gray-200 dark:bg-gray-800">
+              <img src="/Marcos_junee.jpg" alt={t('about.team.adam.name')} class="w-full h-full object-cover scale-150" style="object-position: center 0%;" />
+            </div>
           </div>
           <div>
             <p class="text-gray-900 dark:text-white text-lg font-medium leading-normal">{t('about.team.marcos.name')}</p>
             <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">{t('about.team.marcos.role')}</p>
-            <a class="text-primary hover:underline text-sm font-normal leading-normal inline-flex items-center gap-1 mt-1 group" href="#">
+            <a class="text-primary hover:underline text-sm font-normal leading-normal inline-flex items-center gap-1 mt-1 group" href="https://www.linkedin.com/in/marcos-lopez-94b84735/" target="_blank">
               <span>{t('about.team.linkedin')}</span>
               <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-0.5">arrow_forward</span>
             </a>
@@ -53,12 +55,14 @@ const t = useTranslations(lang);
         </div>
         <div class="flex flex-col gap-4 text-center items-center">
           <div class="px-4 w-full max-w-[200px]">
-            <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-full bg-gray-200 dark:bg-gray-800" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBkZYKr963NSl6zM6ksuJuXFqjxmEm5BPCkZ4xUSt_Bs6ly_b8kbsrK6VfBsxMmFrqFVYCiWLRdtjEIJWybrp98ii9WqiJ4eJHCMg6CVkzqY82m4Uh-PJnEG758lqzMywqoVEDYZR1qSyes0pBGibPRZCmYwYfI_fVQiKYOSmNkShSf1iTLaMrqja-g0FRa7MDh7YLKF_EJz1WcAqtGsb6Frxlha59RT0DmDI5k3Q7TX48A3z6W8maQCm6mKrED9bOcg-LuMGerpEpV");'></div>
+            <div class="w-full aspect-square rounded-full overflow-hidden bg-gray-200 dark:bg-gray-800">
+              <img src="/Cesar_junee.jpg" alt={t('about.team.adam.name')} class="w-full h-full object-cover scale-150" style="object-position: center 0%;" />
+            </div>
           </div>
           <div>
             <p class="text-gray-900 dark:text-white text-lg font-medium leading-normal">{t('about.team.cesar.name')}</p>
             <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">{t('about.team.cesar.role')}</p>
-            <a class="text-primary hover:underline text-sm font-normal leading-normal inline-flex items-center gap-1 mt-1 group" href="#">
+            <a class="text-primary hover:underline text-sm font-normal leading-normal inline-flex items-center gap-1 mt-1 group" href="https://www.linkedin.com/in/c%C3%A9sar-mart%C3%ADnez-%C3%A1vila-b0a8a35a/" target="_blank">
               <span>{t('about.team.linkedin')}</span>
               <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-0.5">arrow_forward</span>
             </a>

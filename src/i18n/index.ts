@@ -14,6 +14,13 @@ export function getLangFromUrl(url: URL): Language {
   return defaultLang;
 }
 
+export function getValidLang(lang: string | undefined): Language {
+  if (lang && lang in languages) {
+    return lang as Language;
+  }
+  return defaultLang;
+}
+
 export function useTranslations(lang: Language) {
   return function t(key: string): string {
     const keys = key.split('.');
